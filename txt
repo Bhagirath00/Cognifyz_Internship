@@ -1,7 +1,0 @@
-python -m http.server 8000
-
-
-okay now let's move to level 2 task 1 here, i know whole UI is diferent but iw ant you to match the UI back to its was loking original, same theme that we notice in Level one..
-if still have confusion regarding theme then check the Level 3.
-there also same theme applied..
-after applying the theme ake sure you improve the things..
