@@ -10,13 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <style>
-    :root{ --bg:#000; --panel:#050505; --muted:#a0a0a0; --light:#d1d1d1; --metal:#444; --primary-start:#8b5cf6; --primary-end:#d946ef; }
+    :root{ --bg:#000; --panel:#050505; --muted:#a0a0a0; --light:#d1d1d1; --metal:#444; --primary-start:#0ea5e9; --primary-end:#22d3ee; }
     html,body{height:auto;min-height:100%}
     body{background:var(--bg);color:#fff;font-family:Inter,system-ui;}
 
     .page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
 
-    .card-wrap{max-width:340px;width:100%}
+    .card-wrap{max-width:420px;width:100%}
 
     /* Premium card surface */
     .card.is-dark{
@@ -25,6 +25,7 @@
       border-radius:22px;overflow:hidden;
       box-shadow:0 18px 50px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08), 0 0 20px rgba(255,255,255,.05);
       transition:transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s, border-color .35s, background .35s;
+      position:relative;
     }
     .card.is-dark:hover{
       transform:translateY(-6px);
@@ -32,17 +33,19 @@
       box-shadow:0 28px 90px rgba(0,0,0,.7), 0 0 0 2px rgba(255,255,255,.95), 0 0 40px rgba(255,255,255,.12);
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
     }
+    /* subtle gradient outline */
+    .card.is-dark::after{content:"";position:absolute;inset:0;border-radius:22px;pointer-events:none;background:linear-gradient(120deg, rgba(14,165,233,.25), rgba(34,211,238,.15), transparent 60%);mix-blend-mode:screen;}
 
     .card-image .image{overflow:hidden}
-    .card-image img{display:block;width:100%;height:160px;object-fit:cover;filter:saturate(1.08) contrast(1.05)}
+    .card-image img{display:block;width:100%;height:140px;object-fit:cover;filter:saturate(1.08) contrast(1.05)}
 
-    .card-content{padding:16px 16px 18px}
+    .card-content{padding:14px 16px 16px}
     .title{color:#fff;letter-spacing:.3px;font-weight:700;font-family:'Clash Display',system-ui}
     .subtitle{color:var(--light);margin-top:-2px;text-transform:uppercase;letter-spacing:.1em;font-size:.8rem}
     .content{color:var(--muted)}
 
     /* Premium primary CTA */
-    .btn-cta.button{background:linear-gradient(90deg,var(--primary-start),var(--primary-end));color:#fff;border:0;border-radius:999px;font-weight:700;box-shadow:0 8px 24px rgba(139,92,246,.35)}
+    .btn-cta.button{background:linear-gradient(90deg,var(--primary-start),var(--primary-end));color:#001018;border:0;border-radius:999px;font-weight:700;box-shadow:0 8px 24px rgba(14,165,233,.35)}
     .btn-cta.button:hover{filter:brightness(1.06)}
 
     /* Subtle 3D tilt on hover (card-wide) */
@@ -51,17 +54,17 @@
     .tilt-inner{transition:transform .2s ease-out}
 
     /* Badge */
-    .badge{display:inline-block;padding:.35rem .6rem;border-radius:999px;background:linear-gradient(90deg, rgba(139,92,246,.12), rgba(217,70,239,.12));border:1px solid rgba(139,92,246,.35);color:#e9e9ff;font-size:.75rem;letter-spacing:.3px}
+    .badge{display:inline-block;padding:.3rem .55rem;border-radius:999px;background:linear-gradient(90deg, rgba(14,165,233,.12), rgba(34,211,238,.12));border:1px solid rgba(14,165,233,.35);color:#dff7ff;font-size:.72rem;letter-spacing:.3px}
 
     /* Icon avatar next to title */
     .media+.content{margin-top:8px}
     .avatar-wrap{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-      background:radial-gradient(120% 120% at 30% 20%, rgba(139,92,246,.25), rgba(217,70,239,.12));
-      border:1px solid rgba(139,92,246,.55);box-shadow:inset 0 0 18px rgba(139,92,246,.18), 0 2px 10px rgba(0,0,0,.35)}
+      background:radial-gradient(120% 120% at 30% 20%, rgba(14,165,233,.22), rgba(34,211,238,.1));
+      border:1px solid rgba(14,165,233,.55);box-shadow:inset 0 0 18px rgba(14,165,233,.18), 0 2px 10px rgba(0,0,0,.35)}
     .avatar{width:22px;height:22px;display:block}
 
     /* Metallic divider */
-    .metallic-divider{height:1px;background:linear-gradient(90deg, transparent, var(--metal), transparent);margin:1rem 0}
+    .metallic-divider{height:1px;background:linear-gradient(90deg, transparent, var(--metal), transparent);margin:.75rem 0}
 
     /* Responsive */
     @media (max-width: 420px){ .card-image img{height:200px} }
@@ -78,7 +81,7 @@
             </figure>
           </div>
           <div class="card-content">
-            <span class="badge">AI INNOVATION</span>
+            <span class="badge">DATA ANALYTICS</span>
             <article class="media" style="align-items:center;margin-top:10px">
               <figure class="media-left">
                 <p class="image is-48x48">
@@ -88,15 +91,15 @@
                 </p>
               </figure>
               <div class="media-content">
-                <h3 class="title is-5" style="margin:0">Quantum Link Pro</h3>
-                <p class="subtitle is-7" style="margin-top:2px">Seamless connectivity, intelligent speed.</p>
+                <h3 class="title is-5" style="margin:0">Intelligent Data Insights</h3>
+                <p class="subtitle is-7" style="margin-top:2px">WHERE DATA MEETS INTELLIGENCE</p>
               </div>
             </article>
             <div class="content" style="margin-top:10px">
-              Experience next‑generation connectivity with Quantum Link Pro. Seamless integration, unparalleled speed, and intuitive AI‑driven insights for the future.
+            Experience the power of Cognifyz Technologies' data analytics tools. We provide seamless integration and intuitive, AI-driven insights to meet the evolving needs of modern businesses.
             </div>
             <div class="buttons" style="margin-top:14px">
-              <a class="button btn-cta">Discover More</a>
+              <a class="button btn-cta">Explore Our Solutions</a>
               <a class="button is-dark" style="background:transparent;border:1px solid rgba(255,255,255,.12);color:#e6e9f2">Details</a>
             </div>
           </div>

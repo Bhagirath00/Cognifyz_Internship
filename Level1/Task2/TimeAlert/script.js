@@ -4,6 +4,61 @@ document.addEventListener('DOMContentLoaded', () => {
   const alertMsg = document.getElementById('alertMsg');
   const dismiss = document.getElementById('dismiss');
 
+  // Bokeh particles
+  const canvas = document.getElementById('bokeh');
+  const ctx = canvas.getContext('2d');
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  let W = 0, H = 0; let circles = [];
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = Math.floor(W * DPR); canvas.height = Math.floor(H * DPR);
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  function makeCircle() {
+    const r = Math.random() * 40 + 20; // 20-60px
+    const palette = ['#6EE7F9','#A78BFA','#60A5FA','#FDE68A','#F472B6'];
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() * 0.6 + 0.2) * 0.3,
+      a: Math.random() * 0.25 + 0.08,
+      color: palette[Math.floor(Math.random()*palette.length)]
+    };
+  }
+  function init() {
+    resize();
+    circles = Array.from({length: 60}, makeCircle);
+  }
+  function tick() {
+    ctx.clearRect(0,0,W,H);
+    ctx.globalCompositeOperation = 'lighter';
+    for (const c of circles) {
+      c.x += c.vx; c.y += c.vy;
+      if (c.y - c.r > H) { c.y = -c.r; c.x = Math.random()*W; }
+      if (c.x < -c.r) c.x = W + c.r; else if (c.x > W + c.r) c.x = -c.r;
+      const g = ctx.createRadialGradient(c.x, c.y, 0, c.x, c.y, c.r);
+      g.addColorStop(0, hexToRgba(c.color, c.a));
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(c.x, c.y, c.r, 0, Math.PI*2); ctx.fill();
+    }
+    ctx.globalCompositeOperation = 'source-over';
+    requestAnimationFrame(tick);
+  }
+  function hexToRgba(hex, a){
+    const v = hex.replace('#','');
+    const r = parseInt(v.substring(0,2),16);
+    const g = parseInt(v.substring(2,4),16);
+    const b = parseInt(v.substring(4,6),16);
+    return `rgba(${r},${g},${b},${a})`;
+  }
+  init();
+  window.addEventListener('resize', () => { init(); });
+  requestAnimationFrame(tick);
+
   function getGreeting(hour) {
     if (hour >= 5 && hour < 12) return 'Good morning!';
     if (hour >= 12 && hour < 17) return 'Good afternoon!';
