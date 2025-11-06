@@ -67,12 +67,8 @@
                 </li>
             </ul>
             
-            <!-- Search and CTA -->
+            <!-- CTA -->
             <div class="nav-actions">
-                <div class="search-box">
-                    <input type="text" placeholder="Search...">
-                    <i class="fas fa-search"></i>
-                </div>
                 <a href="#contact" class="nav-cta">Get Started</a>
             </div>
             
@@ -228,38 +224,29 @@
                             <li>Try the dropdown menus within the off-canvas menu</li>
                         </ol>
                     </div>
-                    <div class="demo-video">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>Interactive Demo Video</p>
-                        </div>
-                    </div>
+                    <img class="demo-image" src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80" alt="Responsive interface" />
                 </div>
             </div>
         </section>
     </main>
     
     <!-- Footer -->
-    <footer class="main-footer">
+    <footer class="main-footer minimal">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Cognifyz</h3>
-                    <p>Creating exceptional web experiences with advanced navigation</p>
+                <div class="brand">
+                    <i class="fas fa-rocket"></i>
+                    <span>Cognifyz</span>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Cognifyz Technologies. All rights reserved.</p>
+                <p>&copy; 2023 Cognifyz Technologies · All rights reserved</p>
             </div>
         </div>
     </footer>
@@ -336,6 +323,27 @@
                     navbar.classList.remove('scrolled');
                 }
             });
+
+            // 3D tilt interaction for visual card
+            const tilt = document.querySelector('.tilt-card');
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (tilt && !reduceMotion) {
+                const dampen = 20; // lower = stronger tilt
+                const onMove = (e) => {
+                    const rect = tilt.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width;
+                    const y = (e.clientY - rect.top) / rect.height;
+                    const rotateY = (x - 0.5) * dampen;
+                    const rotateX = (0.5 - y) * dampen;
+                    tilt.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                };
+                tilt.addEventListener('mouseenter', () => tilt.classList.add('is-hover'));
+                tilt.addEventListener('mousemove', onMove);
+                tilt.addEventListener('mouseleave', () => {
+                    tilt.classList.remove('is-hover');
+                    tilt.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
+                });
+            }
         });
     </script>
 </body>

@@ -121,6 +121,7 @@ body.no-scroll {
     font-size: 1rem;
     transition: var(--transition);
     border-radius: var(--border-radius);
+    position: relative;
 }
 
 .nav-link i {
@@ -137,6 +138,23 @@ body.no-scroll {
     color: var(--white);
     background-color: rgba(255, 255, 255, 0.05);
 }
+
+/* Professional underline indicator */
+.nav-link::after{
+    content: '';
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 6px;
+    height: 2px;
+    background: linear-gradient(45deg, var(--white), var(--gray-300));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+    opacity: .9;
+}
+.nav-link:hover::after,
+.nav-link.active::after{ transform: scaleX(1); }
 
 .dropdown-icon {
     margin-left: 5px;
@@ -195,6 +213,9 @@ body.no-scroll {
     color: var(--white);
     padding-left: 25px;
 }
+
+/* Header actions spacing */
+.nav-actions{ display:flex; align-items:center; gap:16px; }
 
 /* Search Box */
 .search-box {
@@ -806,6 +827,24 @@ section {
     z-index: 1;
 }
 
+/* Demo plain image */
+.demo-image{ display:block; width:100%; height:auto; object-fit: cover; filter: none; border:0; box-shadow:none; border-radius:0; }
+
+/* Improve left content spacing */
+.demo-instructions h3{ margin-bottom:12px; letter-spacing:.2px; }
+.demo-instructions ol{ padding-left: 20px; margin:0; }
+.demo-instructions li{ margin-bottom: 10px; color: var(--gray-400); }
+
+/* Minimal professional footer */
+.main-footer.minimal{ padding:28px 0; }
+.main-footer.minimal .footer-content{ display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:0; }
+.main-footer.minimal .brand{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px; }
+.main-footer.minimal .brand i{ background: linear-gradient(45deg, var(--white), var(--gray-300)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.main-footer.minimal .footer-links{ list-style:none; display:flex; gap:16px; }
+.main-footer.minimal .footer-links a{ color: var(--gray-500); text-decoration:none; transition: var(--transition); }
+.main-footer.minimal .footer-links a:hover{ color: var(--white); }
+.main-footer.minimal .footer-bottom{ border-top: 1px solid rgba(255,255,255,0.05); margin-top:16px; padding-top:12px; text-align:center; color: var(--gray-600); }
+
 /* Footer */
 .main-footer {
     background: linear-gradient(135deg, var(--black), var(--gray-900));
@@ -954,6 +993,8 @@ section {
         grid-template-columns: 1fr;
         gap: 40px;
     }
+    /* keep image full width on mobile */
+    .demo-image{ width:100%; }
 }
 
 @media screen and (max-width: 768px) {

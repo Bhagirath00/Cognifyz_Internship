@@ -32,11 +32,20 @@ body{
 }
 .subtitle{margin-top:10px;color:var(--muted)}
 
-.slideshow{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--metal);overflow:hidden;box-shadow:var(--shadow)}
+.slideshow{
+  position:relative;
+  width:min(95vw,1000px);
+  aspect-ratio:21/9; /* wider, shorter */
+  margin:0 auto;
+  border:1px solid var(--metal);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border-radius:12px;
+}
 
 /* Slides */
 .slide{position:absolute;inset:0;opacity:0;transform:scale(1.02);transition:opacity .8s ease,transform 1.2s ease}
-.slide img{width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.06);display:block}
+.slide img{width:100%;height:100%;object-fit:cover;object-position:center center;filter:saturate(1.08) contrast(1.06);display:block}
 .slide::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.2) 40%,transparent 65%)}
 
 /* Captions */
@@ -67,5 +76,5 @@ body{
 .d5{animation:dotCycle var(--duration) linear infinite;animation-delay:calc(var(--duration)*.8)}
 
 /* Responsive */
-@media (max-width:900px){.title{font-size:34px}}
-@media (max-width:640px){body{padding:24px 14px 40px}.title{font-size:28px}.slide figcaption{left:18px;right:18px;bottom:20px}.slide h2{font-size:22px}.slide p{font-size:14px}}
+@media (max-width:900px){.title{font-size:34px}.slideshow{width:min(96vw,860px);aspect-ratio:21/9}}
+@media (max-width:640px){body{padding:24px 14px 40px}.title{font-size:28px}.slideshow{width:100%;aspect-ratio:20/9;border-radius:10px}.slide figcaption{left:18px;right:18px;bottom:20px}.slide h2{font-size:22px}.slide p{font-size:14px}}
