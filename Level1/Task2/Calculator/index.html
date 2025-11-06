@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator | Cognifyz</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="bg-blur" aria-hidden="true"></div>
+  <main class="wrap">
+    <div class="calc" role="application" aria-label="Addition calculator">
+      <div class="status" id="status" aria-live="polite"></div>
+      <div id="display" class="display" aria-live="polite">0</div>
+      <div class="keys">
+        <button class="key key-func" data-action="clear" aria-label="Clear">C</button>
+        <button class="key" data-digit="7">7</button>
+        <button class="key" data-digit="8">8</button>
+        <button class="key" data-digit="9">9</button>
+
+        <button class="key" data-digit="4">4</button>
+        <button class="key" data-digit="5">5</button>
+        <button class="key" data-digit="6">6</button>
+        <button class="key key-op" data-op="+" aria-label="Add">+</button>
+
+        <button class="key" data-digit="1">1</button>
+        <button class="key" data-digit="2">2</button>
+        <button class="key" data-digit="3">3</button>
+        <button class="key key-eq" data-action="equals" aria-label="Equals">=</button>
+
+        <button class="key key-zero" data-digit="0">0</button>
+        <button class="key" data-digit=".">.</button>
+      </div>
+      <p class="hint">Tip: Use keyboard 0-9, "+", Enter, Esc.</p>
+    </div>
+    <section id="historySection" class="history" aria-label="History">
+      <div class="history-header">
+        <h3>History</h3>
+        <div class="history-actions">
+          <button class="key key-func small" id="toggleHistory" aria-expanded="true" aria-controls="historyList">Hide</button>
+          <button class="key key-func small" id="clearHistory" aria-label="Clear history">Clear</button>
+        </div>
+      </div>
+      <div id="historyList" class="history-list" role="list"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

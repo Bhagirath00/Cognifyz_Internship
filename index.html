@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognifyz Internship Portfolio</title>
+    <!-- Removed automatic redirect so the portfolio page is visible and navigable -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--black);
+            color: var(--white);
+            min-height: 100vh;
+            padding: 20px;
+            font-weight: 300;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .main-header {
+            background: linear-gradient(135deg, var(--black), var(--gray-900));
+            padding: 30px;
+            border-radius: 0;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, var(--white), var(--gray-300));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+        }
+
+        .main-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-family: var(--font-secondary);
+            background: linear-gradient(45deg, var(--white), var(--gray-300));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            color: var(--gray-400);
+            max-width: 700px;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.7;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--gray-500);
+        }
+        /* Navigation */
+        .navigation {
+            background: linear-gradient(135deg, var(--black), var(--gray-900));
+            border-radius: 0;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky; top: 0; z-index: 50;
+        }
+
+        .nav-tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-tab {
+            padding: 20px 30px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            text-align: center;
+            background: transparent;
+            border: none;
+            color: var(--gray-400);
+        }
+
+        .nav-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.05), transparent);
+            z-index: -1;
+        }
+
+        .nav-tab:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-tab.active {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--white), var(--gray-400));
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Level Cards */
+        .level-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .level-card {
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.8), rgba(10, 10, 10, 0.8));
+            border-radius: 0;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .level-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.03), transparent);
+            z-index: -1;
+        }
+
+        .level-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .level-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .level-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gray-800), var(--black));
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .level-title {
+            font-size: 1.8rem;
+            font-family: var(--font-secondary);
+            background: linear-gradient(45deg, var(--white), var(--gray-300));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .level-description {
+            color: var(--gray-400);
+            margin-bottom: 25px;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .task-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .task-item {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .task-item:last-child {
+            border-bottom: none;
+        }
+
+        .task-item i {
+            color: var(--gray-500);
+            width: 20px;
+            text-align: center;
+        }
+
+        .task-item a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: var(--transition);
+            flex-grow: 1;
+        }
+
+        .task-item a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+            display: inline-block;
+        }
+
+        .view-btn {
+            background: linear-gradient(135deg, var(--black), var(--gray-900));
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 0;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            align-self: flex-start;
+        }
+
+        .view-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+            z-index: -1;
+        }
+
+        .view-btn:hover {
+            background: linear-gradient(135deg, var(--gray-900), var(--black));
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        .main-footer {
+            background: linear-gradient(135deg, var(--black), var(--gray-900));
+            padding: 40px 0;
+            border-radius: 0;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-family: var(--font-secondary);
+            background: linear-gradient(45deg, var(--white), var(--gray-300));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Ambient background */
+        .bg-blur { position: fixed; inset: -20%; pointer-events: none; z-index: -1 }
+        .bg-blur::before, .bg-blur::after { content: ""; position: absolute; border-radius: 50%; filter: blur(90px); opacity: .16 }
+        .bg-blur::before { width: 520px; height: 520px; left: 8%; top: 0; background: radial-gradient(closest-side,#6366f1,transparent 70%) }
+        .bg-blur::after  { width: 480px; height: 480px; right: 8%; bottom: 0; background: radial-gradient(closest-side,#a855f7,transparent 70%) }
+
+        .footer-section p {
+            color: var(--gray-500);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0;
+            color: var(--gray-400);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .level-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .main-header {
+                padding: 25px 20px;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .main-header h1 {
+                font-size: 2rem;
+            }
+
+            .main-header p {
+                font-size: 1rem;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .nav-tab {
+                text-align: left;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-tab:last-child {
+                border-bottom: none;
+            }
+
+            .level-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .level-card {
+                padding: 25px 20px;
+            }
+
+            .level-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .main-header {
+                padding: 20px 15px;
+            }
+
+            .logo {
+                font-size: 2rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .main-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .level-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blur" aria-hidden="true"></div>
+    <div class="container">
+
+        <!-- Navigation (kept minimal) -->
+        <nav class="navigation" aria-label="Levels navigation">
+            <div class="nav-tabs">
+                <button class="nav-tab" data-target="level1">Level 1</button>
+                <button class="nav-tab" data-target="level2">Level 2</button>
+                <button class="nav-tab" data-target="level3">Level 3</button>
+            </div>
+        </nav>
+
+        <!-- Levels overview: visible by default, shows only Level 1/2/3 -->
+        <section id="levels-overview">
+            <div class="level-grid">
+                <div class="level-card" data-open-level="level1" style="cursor:pointer;">
+                    <div class="level-header">
+                        <div class="level-icon"><i class="fas fa-layer-group"></i></div>
+                        <h2 class="level-title">Level 1</h2>
+                    </div>
+                    <p class="level-description">Foundational web development skills: HTML, CSS and basic JavaScript. Click to see task groups.</p>
+                    <button class="view-btn" data-open-level="level1">Open Level 1</button>
+                </div>
+
+                <div class="level-card" data-open-level="level2" style="cursor:pointer;">
+                    <div class="level-header">
+                        <div class="level-icon"><i class="fas fa-th-large"></i></div>
+                        <h2 class="level-title">Level 2</h2>
+                    </div>
+                    <p class="level-description">Intermediate projects: responsive layouts and framework-based components.</p>
+                    <button class="view-btn" data-open-level="level2">Open Level 2</button>
+                </div>
+
+                <div class="level-card" data-open-level="level3" style="cursor:pointer;">
+                    <div class="level-header">
+                        <div class="level-icon"><i class="fas fa-gem"></i></div>
+                        <h2 class="level-title">Level 3</h2>
+                    </div>
+                    <p class="level-description">Advanced projects with interactive features and polished designs.</p>
+                    <button class="view-btn" data-open-level="level3">Open Level 3</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Level 1 Content -->
+    <section id="level1" class="content-section">
+            <div class="level-grid">
+                <!-- Task 1 -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <div class="level-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h2 class="level-title">HTML & CSS</h2>
+                    </div>
+                    <p class="level-description">Foundational web development tasks focusing on semantic HTML structure and advanced CSS styling techniques.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <i class="fas fa-file-code"></i>
+                            <a href="Level1/Task1/Webpage/index.html" target="_blank">Simple Webpage</a>
+                        </li>
+                        <li class="task-item">
+                            <i class="fas fa-file-alt"></i>
+                            <a href="Level1/Task1/BasicForm/index.html" target="_blank">Basic Form</a>
+                        </li>
+                        <li class="task-item">
+                            <i class="fas fa-bars"></i>
+                            <a href="Level1/Task1/NavMenu/index.html" target="_blank">Navigation Menu</a>
+                        </li>
+                    </ul>
+                    <button class="view-btn open-project" data-href="Level1/Task1/Webpage/index.html">
+                        <i class="fas fa-external-link-alt"></i> View Projects
+                    </button>
+                </div>
+
+                <!-- Task 2 -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <div class="level-icon">
+                            <i class="fas fa-js"></i>
+                        </div>
+                        <h2 class="level-title">JavaScript</h2>
+                    </div>
+                    <p class="level-description">Interactive web components utilizing vanilla JavaScript for dynamic user experiences.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <i class="fas fa-palette"></i>
+                            <a href="Level1/Task2/ColorButton/index.html" target="_blank">Color Changing Button</a>
+                        </li>
+                        <li class="task-item">
+                            <i class="fas fa-clock"></i>
+                            <a href="Level1/Task2/TimeAlert/index.html" target="_blank">Time Alert</a>
+                        </li>
+                        <li class="task-item">
+                            <i class="fas fa-calculator"></i>
+                            <a href="Level1/Task2/Calculator/index.html" target="_blank">Calculator</a>
+                        </li>
+                    </ul>
+                    <button class="view-btn open-project" data-href="Level1/Task2/ColorButton/index.html">
+                        <i class="fas fa-external-link-alt"></i> View Projects
+                    </button>
+                </div>
+            </div>
+            <div style="margin-top:18px;">
+                <button class="view-btn" id="back-to-levels-1">← Back to Levels</button>
+            </div>
+        </section>
+
+        <!-- Level 2 Content -->
+    <section id="level2" class="content-section">
+            <div class="level-grid">
+                <!-- Task 1 -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <div class="level-icon">
+                            <i class="fas fa-th"></i>
+                        </div>
+                        <h2 class="level-title">Frameworks</h2>
+                    </div>
+                    <p class="level-description">Advanced responsive design implementations using modern CSS frameworks.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <i class="fas fa-id-card"></i>
+                            <a href="Level2/Task1/ResponsiveCard/bulmaCard.html" target="_blank">Responsive Card</a>
+                        </li>
+                        <li class="task-item">
+                            <i class="fas fa-th-large"></i>
+                            <a href="Level2/Task1/ResponsiveGrid/bootstrapGrid.html" target="_blank">Responsive Grid</a>
+                        </li>
+                    </ul>
+                    <button class="view-btn open-project" data-href="Level2/Task1/ResponsiveCard/bulmaCard.html">
+                        <i class="fas fa-external-link-alt"></i> View Projects
+                    </button>
+                </div>
+
+                <!-- Task 2 -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <div class="level-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h2 class="level-title">Responsive Design</h2>
+                    </div>
+                    <p class="level-description">Comprehensive responsive web design solutions with mobile-first approach.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <i class="fas fa-window-maximize"></i>
+                            <a href="Level2/Task2/ResponsivePage/index.html" target="_blank">Responsive Page</a>
+                        </li>
+                        <li class="task-item">
+                            <i class="fas fa-bars"></i>
+                            <a href="Level2/Task2/HamburgerMenu/index.html" target="_blank">Hamburger Menu</a>
+                        </li>
+                    </ul>
+                    <button class="view-btn open-project" data-href="Level2/Task2/ResponsivePage/index.html">
+                        <i class="fas fa-external-link-alt"></i> View Projects
+                    </button>
+                </div>
+            </div>
+            <div style="margin-top:18px;">
+                <button class="view-btn" id="back-to-levels-2">← Back to Levels</button>
+            </div>
+        </section>
+
+        <!-- Level 3 Content -->
+    <section id="level3" class="content-section">
+            <div class="level-grid">
+                <!-- Task 1 -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <div class="level-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h2 class="level-title">Image Manipulation</h2>
+                    </div>
+                    <p class="level-description">Advanced image handling and manipulation techniques with interactive galleries.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <i class="fas fa-th"></i>
+                            <a href="Level3/Task1/ImageGallery/index.html" target="_blank">Image Gallery</a>
+                        </li>
+                        <li class="task-item">
+                            <i class="fas fa-play-circle"></i>
+                            <a href="Level3/Task1/Slideshow/index.html" target="_blank">Image Slideshow</a>
+                        </li>
+                    </ul>
+                    <button class="view-btn open-project" data-href="Level3/Task1/ImageGallery/index.html">
+                        <i class="fas fa-external-link-alt"></i> View Projects
+                    </button>
+                </div>
+
+                <!-- Task 2 -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <div class="level-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h2 class="level-title">Landing Page</h2>
+                    </div>
+                    <p class="level-description">Professional landing page design with modern UI/UX principles.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <i class="fas fa-home"></i>
+                            <a href="Level3/Task2/index.html" target="_blank">Landing Page</a>
+                        </li>
+                    </ul>
+                    <button class="view-btn open-project" data-href="Level3/Task2/index.html">
+                        <i class="fas fa-external-link-alt"></i> View Projects
+                    </button>
+                </div>
+
+                <!-- Task 3 -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <div class="level-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h2 class="level-title">Luxury Monochrome</h2>
+                    </div>
+                    <p class="level-description">Premium design implementation with luxury aesthetics and minimalism.</p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <i class="fas fa-gem"></i>
+                            <a href="Level3/Task2/index.html" target="_blank">Luxury Design</a>
+                        </li>
+                    </ul>
+                    <button class="view-btn open-project" data-href="Level3/Task2/index.html">
+                        <i class="fas fa-external-link-alt"></i> View Projects
+                    </button>
+                </div>
+            </div>
+            <div style="margin-top:18px;">
+                <button class="view-btn" id="back-to-levels-3">← Back to Levels</button>
+            </div>
+        </section>
+
+        
+    </div>
+
+    <script>
+        // Improved navigation and level/task toggling
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const sections = document.querySelectorAll('.content-section');
+            const overview = document.getElementById('levels-overview');
+
+            // Hide level sections initially; show overview
+            sections.forEach(s => s.classList.remove('active'));
+            if (overview) overview.style.display = 'block';
+
+            // Tab clicks (from top nav) open the level and hide overview
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    openLevel(target);
+                    // highlight active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Open-level buttons in overview
+            const openBtns = document.querySelectorAll('[data-open-level]');
+            openBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    // support clicking the whole card or the inner button
+                    const level = this.getAttribute('data-open-level') || this.closest('[data-open-level]')?.getAttribute('data-open-level');
+                    if (level) openLevel(level);
+                });
+            });
+
+            // Buttons inside cards (view project) open in new tab
+            const projBtns = document.querySelectorAll('.open-project');
+            projBtns.forEach(b => {
+                b.addEventListener('click', function() {
+                    const href = this.getAttribute('data-href');
+                    if (href) window.open(href, '_blank');
+                });
+            });
+
+            // Back buttons
+            const back1 = document.getElementById('back-to-levels-1');
+            const back2 = document.getElementById('back-to-levels-2');
+            const back3 = document.getElementById('back-to-levels-3');
+            [back1, back2, back3].forEach(b => {
+                if (!b) return;
+                b.addEventListener('click', () => showOverview());
+            });
+
+            function openLevel(id) {
+                // hide overview and show requested section
+                if (overview) overview.style.display = 'none';
+                sections.forEach(s => s.classList.remove('active'));
+                const sec = document.getElementById(id);
+                if (sec) sec.classList.add('active');
+                // scroll to top of section for better UX
+                setTimeout(() => { if (sec) sec.scrollIntoView({behavior: 'smooth'}); }, 50);
+            }
+
+            function showOverview() {
+                // hide sections, show overview and clear nav active states
+                sections.forEach(s => s.classList.remove('active'));
+                if (overview) overview.style.display = 'block';
+                tabs.forEach(t => t.classList.remove('active'));
+                // scroll up a bit
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>

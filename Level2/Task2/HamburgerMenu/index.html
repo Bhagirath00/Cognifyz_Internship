@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Hamburger Menu | Cognifyz Internship</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Advanced Navigation with Hamburger Menu -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="#home">
+                    <i class="fas fa-rocket"></i>
+                    <span>Cognifyz</span>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#services" class="nav-link">
+                        <i class="fas fa-cogs"></i>
+                        <span>Services</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#web-design">Web Design</a></li>
+                        <li><a href="#development">Development</a></li>
+                        <li><a href="#marketing">Digital Marketing</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#portfolio" class="nav-link">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Portfolio</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#websites">Websites</a></li>
+                        <li><a href="#apps">Mobile Apps</a></li>
+                        <li><a href="#branding">Branding</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Search and CTA -->
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <a href="#contact" class="nav-cta">Get Started</a>
+            </div>
+            
+            <!-- Advanced Hamburger Menu -->
+            <div class="nav-toggle" id="mobile-menu">
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <span class="menu-text">Menu</span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Off-canvas Menu for Mobile -->
+    <div class="offcanvas-menu" id="offcanvasMenu">
+        <div class="offcanvas-header">
+            <div class="offcanvas-logo">
+                <i class="fas fa-rocket"></i>
+                <span>Cognifyz</span>
+            </div>
+            <button class="offcanvas-close" id="offcanvasClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="offcanvas-content">
+            <ul class="offcanvas-nav">
+                <li class="offcanvas-item">
+                    <a href="#home" class="offcanvas-link active">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="offcanvas-item dropdown">
+                    <a href="#services" class="offcanvas-link">
+                        <i class="fas fa-cogs"></i>
+                        <span>Services</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="offcanvas-dropdown">
+                        <li><a href="#web-design">Web Design</a></li>
+                        <li><a href="#development">Development</a></li>
+                        <li><a href="#marketing">Digital Marketing</a></li>
+                    </ul>
+                </li>
+                <li class="offcanvas-item dropdown">
+                    <a href="#portfolio" class="offcanvas-link">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Portfolio</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="offcanvas-dropdown">
+                        <li><a href="#websites">Websites</a></li>
+                        <li><a href="#apps">Mobile Apps</a></li>
+                        <li><a href="#branding">Branding</a></li>
+                    </ul>
+                </li>
+                <li class="offcanvas-item">
+                    <a href="#about" class="offcanvas-link">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="offcanvas-item">
+                    <a href="#contact" class="offcanvas-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="offcanvas-footer">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>&copy; 2023 Cognifyz Technologies</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Overlay for Off-canvas Menu -->
+    <div class="offcanvas-overlay" id="offcanvasOverlay"></div>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Advanced Hamburger Menu</h1>
+                    <p>Experience our professionally designed navigation with responsive hamburger menu</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn btn-primary">Explore Services</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Advanced Menu Features</h2>
+                    <p>Discover the powerful features of our responsive navigation system</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Optimized</h3>
+                        <p>Perfectly adapted for all mobile devices with smooth animations</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Optimized performance with minimal JavaScript overhead</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <h3>Customizable</h3>
+                        <p>Easily customize colors, animations, and behavior</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Demo Section -->
+        <section class="demo">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Try It Yourself</h2>
+                    <p>Resize your browser window to see the hamburger menu in action</p>
+                </div>
+                <div class="demo-content">
+                    <div class="demo-instructions">
+                        <h3>How It Works</h3>
+                        <ol>
+                            <li>On desktop, you'll see the full navigation menu</li>
+                            <li>Resize your browser to tablet or mobile size</li>
+                            <li>The hamburger menu will appear in the top right corner</li>
+                            <li>Click the hamburger icon to open the off-canvas menu</li>
+                            <li>Try the dropdown menus within the off-canvas menu</li>
+                        </ol>
+                    </div>
+                    <div class="demo-video">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Interactive Demo Video</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cognifyz</h3>
+                    <p>Creating exceptional web experiences with advanced navigation</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Cognifyz Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Advanced Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const mobileMenu = document.getElementById('mobile-menu');
+            const offcanvasMenu = document.getElementById('offcanvasMenu');
+            const offcanvasClose = document.getElementById('offcanvasClose');
+            const offcanvasOverlay = document.getElementById('offcanvasOverlay');
+            const navLinks = document.querySelectorAll('.nav-link, .offcanvas-link');
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            // Open off-canvas menu
+            mobileMenu.addEventListener('click', function() {
+                offcanvasMenu.classList.add('active');
+                offcanvasOverlay.classList.add('active');
+                document.body.classList.add('no-scroll');
+            });
+            
+            // Close off-canvas menu
+            function closeOffcanvas() {
+                offcanvasMenu.classList.remove('active');
+                offcanvasOverlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
+            
+            offcanvasClose.addEventListener('click', closeOffcanvas);
+            offcanvasOverlay.addEventListener('click', closeOffcanvas);
+            
+            // Close menu when clicking on links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Close off-canvas menu
+                    closeOffcanvas();
+                });
+            });
+            
+            // Dropdown functionality for off-canvas menu
+            dropdowns.forEach(dropdown => {
+                const dropdownLink = dropdown.querySelector('.nav-link, .offcanvas-link');
+                
+                dropdownLink.addEventListener('click', function(e) {
+                    // Prevent default only for dropdowns
+                    if (this.nextElementSibling && this.nextElementSibling.classList.contains('dropdown-menu') || 
+                        this.nextElementSibling && this.nextElementSibling.classList.contains('offcanvas-dropdown')) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Close off-canvas menu when pressing Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && offcanvasMenu.classList.contains('active')) {
+                    closeOffcanvas();
+                }
+            });
+            
+            // Add scroll effect to navbar
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+/* Premium Black Theme: CSS-only Slideshow */
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#000;
+  --text:#fff;
+  --muted:#b7bcc7;
+  --metal:rgba(255,255,255,.12);
+  --primary-start:#8b5cf6;
+  --primary-end:#d946ef;
+  --shadow:0 18px 50px rgba(0,0,0,.55);
+  --shadow-lg:0 28px 90px rgba(0,0,0,.7);
+  --duration:28s; /* total loop time */
+}
+
+html,body{height:100%}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  padding:40px 18px 60px;
+}
+
+.page{max-width:1200px;margin:0 auto}
+.page-header{text-align:center;margin-bottom:24px}
+.title{
+  font-family:'Clash Display',ui-serif,serif;
+  font-weight:700;letter-spacing:.5px;font-size:40px;line-height:1.1;
+  background:linear-gradient(90deg,#fff,#d9dde5);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.subtitle{margin-top:10px;color:var(--muted)}
+
+.slideshow{position:relative;width:100%;aspect-ratio:16/9;border:1px solid var(--metal);overflow:hidden;box-shadow:var(--shadow)}
+
+/* Slides */
+.slide{position:absolute;inset:0;opacity:0;transform:scale(1.02);transition:opacity .8s ease,transform 1.2s ease}
+.slide img{width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.06);display:block}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.2) 40%,transparent 65%)}
+
+/* Captions */
+.slide figcaption{position:absolute;left:32px;bottom:28px;right:32px;display:flex;flex-direction:column;gap:6px}
+.slide h2{font-family:'Clash Display',ui-serif,serif;font-size:28px;font-weight:700}
+.slide p{color:#d0d3da;font-size:15px}
+
+/* Cross-fade keyframes: each slide visible for equal segment */
+@keyframes fadeCycle{0%,16%{opacity:1;transform:scale(1)}20%,100%{opacity:0;transform:scale(1.02)}}
+
+/* Assign animation with offsets for 5 slides */
+.s1{animation:fadeCycle var(--duration) linear infinite}
+.s2{animation:fadeCycle var(--duration) linear infinite;animation-delay:calc(var(--duration)*.2)}
+.s3{animation:fadeCycle var(--duration) linear infinite;animation-delay:calc(var(--duration)*.4)}
+.s4{animation:fadeCycle var(--duration) linear infinite;animation-delay:calc(var(--duration)*.6)}
+.s5{animation:fadeCycle var(--duration) linear infinite;animation-delay:calc(var(--duration)*.8)}
+
+/* Dots indicator synced to timeline */
+.dots{position:absolute;left:50%;transform:translateX(-50%);bottom:14px;display:flex;gap:10px;z-index:2}
+.dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.15);box-shadow:0 0 0 1px rgba(255,255,255,.08) inset}
+
+@keyframes dotCycle{0%,16%{background:linear-gradient(90deg,var(--primary-start),var(--primary-end));border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.85),0 0 18px rgba(139,92,246,.45)}20%,100%{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.35);box-shadow:none}}
+
+.d1{animation:dotCycle var(--duration) linear infinite}
+.d2{animation:dotCycle var(--duration) linear infinite;animation-delay:calc(var(--duration)*.2)}
+.d3{animation:dotCycle var(--duration) linear infinite;animation-delay:calc(var(--duration)*.4)}
+.d4{animation:dotCycle var(--duration) linear infinite;animation-delay:calc(var(--duration)*.6)}
+.d5{animation:dotCycle var(--duration) linear infinite;animation-delay:calc(var(--duration)*.8)}
+
+/* Responsive */
+@media (max-width:900px){.title{font-size:34px}}
+@media (max-width:640px){body{padding:24px 14px 40px}.title{font-size:28px}.slide figcaption{left:18px;right:18px;bottom:20px}.slide h2{font-size:22px}.slide p{font-size:14px}}
