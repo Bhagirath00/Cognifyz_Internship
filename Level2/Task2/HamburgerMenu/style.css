@@ -828,7 +828,15 @@ section {
 }
 
 /* Demo plain image */
-.demo-image{ display:block; width:100%; height:auto; object-fit: cover; filter: none; border:0; box-shadow:none; border-radius:0; }
+.demo-image{ display:block; width:100%; height:auto; max-height: 420px; object-fit: cover; filter: none; border:0; box-shadow:none; border-radius:8px; align-self:center; }
+
+@media (max-width: 1024px){
+  .demo-image{ max-height: 360px; }
+}
+
+@media (max-width: 768px){
+  .demo-image{ max-height: 300px; }
+}
 
 /* Improve left content spacing */
 .demo-instructions h3{ margin-bottom:12px; letter-spacing:.2px; }
