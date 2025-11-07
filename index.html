@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cognifyz Internship Portfolio</title>
+    <title>Cognifyz | Internship</title>
     <!-- Removed automatic redirect so the portfolio page is visible and navigable -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -127,67 +127,16 @@
             color: var(--gray-500);
         }
         /* Navigation (removed from UI) */
+        .nav-tabs, .nav-tab { display: none !important; }
 
-        .nav-tabs {
-            display: flex;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-tab {
-            padding: 20px 30px;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            flex: 1;
-            text-align: center;
-            background: transparent;
-            border: none;
-            color: var(--gray-400);
-        }
-
-        .nav-tab::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(255,255,255,0.05), transparent);
-            z-index: -1;
-        }
-
-        .nav-tab:hover {
-            color: var(--white);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-tab.active {
-            color: var(--white);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--white), var(--gray-400));
-        }
+        /* Removed legacy nav-tab styling */
 
         /* Content Sections */
         .content-section {
             display: none;
         }
 
-        .content-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
+        .content-section.active { display: block; }
 
         /* Level Cards */
         .level-grid {
@@ -196,6 +145,19 @@
             gap: 26px;
             margin-bottom: 36px;
             align-items: stretch;
+        }
+
+        /* Prevent flash of overview when switching */
+        #levels-overview { will-change: opacity; }
+        /* Ensure inert elements take no layout space */
+        [inert] { display: none !important; }
+        .overview-hidden {
+            display: none !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
         .level-card {
@@ -498,15 +460,16 @@
 
         <!-- Navigation removed per requirements -->
 
-        <!-- Levels overview: visible by default, shows only Level 1/2/3 -->
-        <section id="levels-overview">
+        <!-- Levels overview (hidden by default; JS will reveal) -->
+        <section id="levels-overview" class="overview-hidden" aria-hidden="true" inert>
             <div class="level-grid">
                 <div class="level-card" data-open-level="level1" style="cursor:pointer;">
                     <div class="level-header">
                         <div class="level-icon"><i class="fas fa-layer-group"></i></div>
                         <h2 class="level-title">Level 1</h2>
                     </div>
-                    <p class="level-description">Foundational web development skills: HTML, CSS and basic JavaScript. Click to see task groups.</p>
+                    <p class="level-description">This level focuses on core technologies. Tasks involve building basic web elements
+                     and interactive components using HTML, CSS, and basic JavaScript.</p>
                     
                 </div>
 
@@ -515,7 +478,8 @@
                         <div class="level-icon"><i class="fas fa-th-large"></i></div>
                         <h2 class="level-title">Level 2</h2>
                     </div>
-                    <p class="level-description">Intermediate projects: responsive layouts and framework-based components.</p>
+                    <p class="level-description">This level challenges you with implementing responsive grid layouts and building components using front-end frameworks.
+                         It includes adapting designs to different screen sizes using CSS media queries</p>
                     
                 </div>
 
@@ -524,7 +488,7 @@
                         <div class="level-icon"><i class="fas fa-gem"></i></div>
                         <h2 class="level-title">Level 3</h2>
                     </div>
-                    <p class="level-description">Advanced projects with interactive features and polished designs.</p>
+                    <p class="level-description">This level requires advanced skills in Image Manipulation (like galleries and slideshows) and the creation of a professional, detailed Landing Page for a Web Developer Internship.</p>
                     
                 </div>
             </div>
@@ -541,7 +505,7 @@
                         </div>
                         <h2 class="level-title">HTML & CSS</h2>
                     </div>
-                    <p class="level-description">Foundational web development tasks focusing on semantic HTML structure and advanced CSS styling techniques.</p>
+                    <p class="level-description">Focuses on essential web building blocks to deliver fully structured and styled components. This track establishes strong proficiency in creating clean, semantic layouts.</p>
                     <ul class="task-list">
                         <li class="task-item">
                             <i class="fas fa-file-code"></i>
@@ -567,11 +531,11 @@
                         </div>
                         <h2 class="level-title">JavaScript</h2>
                     </div>
-                    <p class="level-description">Interactive web components utilizing vanilla JavaScript for dynamic user experiences.</p>
+                    <p class="level-description">Implements basic interactivity and logic to create dynamic user experiences. This section requires practical application of JavaScript for manipulating elements and handling simple data operations</p>
                     <ul class="task-list">
                         <li class="task-item">
                             <i class="fas fa-palette"></i>
-                            <a href="Level1/Task2/ColorButton/index.html" target="_blank">Color Changing Button</a>
+                            <a href="Level1/Task2/ColorButton/index.html" target="_blank">Changing Button</a>
                         </li>
                         <li class="task-item">
                             <i class="fas fa-clock"></i>
@@ -601,7 +565,7 @@
                         </div>
                         <h2 class="level-title">Frameworks</h2>
                     </div>
-                    <p class="level-description">Advanced responsive design implementations using modern CSS frameworks.</p>
+                    <p class="level-description">Focuses on leveraging established front-end frameworks (like Bootstrap, Bulma, or UIKit) to accelerate development and ensure high-quality, scalable code</p>
                     <ul class="task-list">
                         <li class="task-item">
                             <i class="fas fa-id-card"></i>
@@ -623,7 +587,7 @@
                         </div>
                         <h2 class="level-title">Responsive Design</h2>
                     </div>
-                    <p class="level-description">Comprehensive responsive web design solutions with mobile-first approach.</p>
+                    <p class="level-description">Demonstrates proficiency in designing web pages that adapt to different screen sizes, ensuring an optimal user experience across all devices.</p>
                     <ul class="task-list">
                         <li class="task-item">
                             <i class="fas fa-window-maximize"></i>
@@ -653,7 +617,7 @@
                         </div>
                         <h2 class="level-title">Image Manipulation</h2>
                     </div>
-                    <p class="level-description">Advanced image handling and manipulation techniques with interactive galleries.</p>
+                    <p class="level-description">Demonstrates skill in dynamic visual design using pure CSS, focusing on user experience and the presentation of large media assets.</p>
                     <ul class="task-list">
                         <li class="task-item">
                             <i class="fas fa-th"></i>
@@ -675,11 +639,11 @@
                         </div>
                         <h2 class="level-title">Landing Page</h2>
                     </div>
-                    <p class="level-description">Professional landing page design with modern UI/UX principles.</p>
+                    <p class="level-description">The culmination of the program, requiring the creation of a high-impact, professional landing page with all necessary strategic elements for an internship recruitment campaign.</p>
                     <ul class="task-list">
                         <li class="task-item">
                             <i class="fas fa-home"></i>
-                            <a href="Level3/Task2/index.html" target="_blank">Landing Page</a>
+                            <a href="Level3/Task2/landingPage/index.html" target="_blank">Landing Page</a>
                         </li>
                     </ul>
                     
@@ -699,9 +663,17 @@
             const sections = document.querySelectorAll('.content-section');
             const overview = document.getElementById('levels-overview');
 
-            // Initial state
-            sections.forEach(s => s.classList.remove('active'));
-            if (overview) overview.style.display = 'block';
+            // Initial state: show overview only
+            sections.forEach(s => {
+                s.classList.remove('active');
+                s.setAttribute('aria-hidden', 'true');
+                s.setAttribute('inert', '');
+            });
+            if (overview) {
+                overview.classList.remove('overview-hidden');
+                overview.removeAttribute('inert');
+                overview.setAttribute('aria-hidden', 'false');
+            }
 
             // Open level when clicking any element marked with data-open-level (cards)
             document.querySelectorAll('[data-open-level]').forEach(el => {
@@ -718,18 +690,37 @@
             });
 
             function openLevel(id) {
-                if (overview) overview.style.display = 'none';
-                sections.forEach(s => s.classList.remove('active'));
+                if (overview) {
+                    overview.classList.add('overview-hidden');
+                    overview.setAttribute('aria-hidden', 'true');
+                    overview.setAttribute('inert', '');
+                }
+                sections.forEach(s => {
+                    s.classList.remove('active');
+                    s.setAttribute('aria-hidden', 'true');
+                    s.setAttribute('inert', '');
+                });
                 const sec = document.getElementById(id);
                 if (sec) {
                     sec.classList.add('active');
-                    setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+                    sec.removeAttribute('inert');
+                    sec.setAttribute('aria-hidden', 'false');
+                    // instant move to top of content avoids overview flash
+                    window.scrollTo({ top: 0, behavior: 'instant' });
                 }
             }
 
             function showOverview() {
-                sections.forEach(s => s.classList.remove('active'));
-                if (overview) overview.style.display = 'block';
+                sections.forEach(s => {
+                    s.classList.remove('active');
+                    s.setAttribute('aria-hidden', 'true');
+                    s.setAttribute('inert', '');
+                });
+                if (overview) {
+                    overview.classList.remove('overview-hidden');
+                    overview.removeAttribute('inert');
+                    overview.setAttribute('aria-hidden', 'false');
+                }
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });

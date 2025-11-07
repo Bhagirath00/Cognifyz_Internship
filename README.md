@@ -9,33 +9,6 @@ A curated, multi-level web portfolio demonstrating foundational to advanced fron
 - **Icons:** Font Awesome.
 - **Local dev:** Live Server (via `npm run start`).
 
-## Repository Structure
-```
-Cognifyz_Internship/
-├─ index.html                # Portfolio homepage (cards → Level sections)
-├─ Level1/
-│  ├─ Task1/
-│  │  ├─ Webpage/           # Simple content page
-│  │  ├─ BasicForm/         # Accessible form with validation
-│  │  └─ NavMenu/           # Responsive multi-level navigation site
-│  └─ Task2/
-│     ├─ Calculator/        # Minimal addition calculator with history
-│     ├─ ColorButton/       # Dynamic color button + particle bg
-│     └─ TimeAlert/         # Time‑based greeting modal
-├─ Level2/
-│  ├─ Task1/
-│  │  ├─ ResponsiveCard/    # Bulma-based premium card (3D tilt)
-│  │  └─ ResponsiveGrid/    # Bootstrap 5 luxury grid showcase
-│  └─ Task2/
-│     ├─ ResponsivePage/    # Multi-section responsive site
-│     └─ HamburgerMenu/     # Advanced header + off-canvas menu
-└─ Level3/
-   ├─ Task1/
-   │  ├─ ImageGallery/      # Filter/search gallery + lightbox & favorites
-   │  └─ Slideshow/         # Premium slideshow with controls
-   └─ Task2/                # Landing page with animations & forms
-```
-
 ## Level‑wise Tasks and Inner Projects
 
 ### Level 1 — Foundations
@@ -138,4 +111,4 @@ Alternative (open any project directly from file system) — no build required.
 - Prefer progressive enhancement; avoid heavy dependencies unless necessary.
 
 ## License
-This repository is for internship/portfolio demonstration purposes.
+This repository is for Cognifyz Web Development Internship Portfolio demonstration purposes.
