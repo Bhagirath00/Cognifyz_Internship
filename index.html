@@ -126,15 +126,7 @@
             font-size: 1.1rem;
             color: var(--gray-500);
         }
-        /* Navigation */
-        .navigation {
-            background: linear-gradient(135deg, var(--black), var(--gray-900));
-            border-radius: 0;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            position: sticky; top: 0; z-index: 50;
-        }
+        /* Navigation (removed from UI) */
 
         .nav-tabs {
             display: flex;
@@ -201,17 +193,18 @@
         .level-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 26px;
+            margin-bottom: 36px;
+            align-items: stretch;
         }
 
         .level-card {
-            background: linear-gradient(135deg, rgba(20, 20, 20, 0.8), rgba(10, 10, 10, 0.8));
-            border-radius: 0;
-            padding: 30px;
+            background: linear-gradient(135deg, rgba(22,22,22,.9), rgba(12,12,12,.9));
+            border-radius: 12px;
+            padding: 28px;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             position: relative;
             overflow: hidden;
             height: 100%;
@@ -231,9 +224,9 @@
         }
 
         .level-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .level-header {
@@ -244,20 +237,20 @@
         }
 
         .level-icon {
-            width: 60px;
-            height: 60px;
+            width: 56px;
+            height: 56px;
             background: linear-gradient(135deg, var(--gray-800), var(--black));
-            border-radius: 0;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .level-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-family: var(--font-secondary);
             background: linear-gradient(45deg, var(--white), var(--gray-300));
             -webkit-background-clip: text;
@@ -267,8 +260,8 @@
 
         .level-description {
             color: var(--gray-400);
-            margin-bottom: 25px;
-            line-height: 1.7;
+            margin-bottom: 18px;
+            line-height: 1.75;
             flex-grow: 1;
         }
 
@@ -503,14 +496,7 @@
     <div class="bg-blur" aria-hidden="true"></div>
     <div class="container">
 
-        <!-- Navigation (kept minimal) -->
-        <nav class="navigation" aria-label="Levels navigation">
-            <div class="nav-tabs">
-                <button class="nav-tab" data-target="level1">Level 1</button>
-                <button class="nav-tab" data-target="level2">Level 2</button>
-                <button class="nav-tab" data-target="level3">Level 3</button>
-            </div>
-        </nav>
+        <!-- Navigation removed per requirements -->
 
         <!-- Levels overview: visible by default, shows only Level 1/2/3 -->
         <section id="levels-overview">
@@ -521,7 +507,7 @@
                         <h2 class="level-title">Level 1</h2>
                     </div>
                     <p class="level-description">Foundational web development skills: HTML, CSS and basic JavaScript. Click to see task groups.</p>
-                    <button class="view-btn" data-open-level="level1">Open Level 1</button>
+                    
                 </div>
 
                 <div class="level-card" data-open-level="level2" style="cursor:pointer;">
@@ -530,7 +516,7 @@
                         <h2 class="level-title">Level 2</h2>
                     </div>
                     <p class="level-description">Intermediate projects: responsive layouts and framework-based components.</p>
-                    <button class="view-btn" data-open-level="level2">Open Level 2</button>
+                    
                 </div>
 
                 <div class="level-card" data-open-level="level3" style="cursor:pointer;">
@@ -539,7 +525,7 @@
                         <h2 class="level-title">Level 3</h2>
                     </div>
                     <p class="level-description">Advanced projects with interactive features and polished designs.</p>
-                    <button class="view-btn" data-open-level="level3">Open Level 3</button>
+                    
                 </div>
             </div>
         </section>
@@ -570,9 +556,7 @@
                             <a href="Level1/Task1/NavMenu/index.html" target="_blank">Navigation Menu</a>
                         </li>
                     </ul>
-                    <button class="view-btn open-project" data-href="Level1/Task1/Webpage/index.html">
-                        <i class="fas fa-external-link-alt"></i> View Projects
-                    </button>
+                    
                 </div>
 
                 <!-- Task 2 -->
@@ -598,9 +582,7 @@
                             <a href="Level1/Task2/Calculator/index.html" target="_blank">Calculator</a>
                         </li>
                     </ul>
-                    <button class="view-btn open-project" data-href="Level1/Task2/ColorButton/index.html">
-                        <i class="fas fa-external-link-alt"></i> View Projects
-                    </button>
+                    
                 </div>
             </div>
             <div style="margin-top:18px;">
@@ -630,9 +612,7 @@
                             <a href="Level2/Task1/ResponsiveGrid/bootstrapGrid.html" target="_blank">Responsive Grid</a>
                         </li>
                     </ul>
-                    <button class="view-btn open-project" data-href="Level2/Task1/ResponsiveCard/bulmaCard.html">
-                        <i class="fas fa-external-link-alt"></i> View Projects
-                    </button>
+                    
                 </div>
 
                 <!-- Task 2 -->
@@ -654,9 +634,7 @@
                             <a href="Level2/Task2/HamburgerMenu/index.html" target="_blank">Hamburger Menu</a>
                         </li>
                     </ul>
-                    <button class="view-btn open-project" data-href="Level2/Task2/ResponsivePage/index.html">
-                        <i class="fas fa-external-link-alt"></i> View Projects
-                    </button>
+                    
                 </div>
             </div>
             <div style="margin-top:18px;">
@@ -686,9 +664,7 @@
                             <a href="Level3/Task1/Slideshow/index.html" target="_blank">Image Slideshow</a>
                         </li>
                     </ul>
-                    <button class="view-btn open-project" data-href="Level3/Task1/ImageGallery/index.html">
-                        <i class="fas fa-external-link-alt"></i> View Projects
-                    </button>
+                    
                 </div>
 
                 <!-- Task 2 -->
@@ -706,29 +682,7 @@
                             <a href="Level3/Task2/index.html" target="_blank">Landing Page</a>
                         </li>
                     </ul>
-                    <button class="view-btn open-project" data-href="Level3/Task2/index.html">
-                        <i class="fas fa-external-link-alt"></i> View Projects
-                    </button>
-                </div>
-
-                <!-- Task 3 -->
-                <div class="level-card">
-                    <div class="level-header">
-                        <div class="level-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h2 class="level-title">Luxury Monochrome</h2>
-                    </div>
-                    <p class="level-description">Premium design implementation with luxury aesthetics and minimalism.</p>
-                    <ul class="task-list">
-                        <li class="task-item">
-                            <i class="fas fa-gem"></i>
-                            <a href="Level3/Task2/index.html" target="_blank">Luxury Design</a>
-                        </li>
-                    </ul>
-                    <button class="view-btn open-project" data-href="Level3/Task2/index.html">
-                        <i class="fas fa-external-link-alt"></i> View Projects
-                    </button>
+                    
                 </div>
             </div>
             <div style="margin-top:18px;">
@@ -740,71 +694,42 @@
     </div>
 
     <script>
-        // Improved navigation and level/task toggling
+        // Level navigation via cards + back buttons
         document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.nav-tab');
             const sections = document.querySelectorAll('.content-section');
             const overview = document.getElementById('levels-overview');
 
-            // Hide level sections initially; show overview
+            // Initial state
             sections.forEach(s => s.classList.remove('active'));
             if (overview) overview.style.display = 'block';
 
-            // Tab clicks (from top nav) open the level and hide overview
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const target = this.getAttribute('data-target');
-                    openLevel(target);
-                    // highlight active tab
-                    tabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-
-            // Open-level buttons in overview
-            const openBtns = document.querySelectorAll('[data-open-level]');
-            openBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    // support clicking the whole card or the inner button
-                    const level = this.getAttribute('data-open-level') || this.closest('[data-open-level]')?.getAttribute('data-open-level');
+            // Open level when clicking any element marked with data-open-level (cards)
+            document.querySelectorAll('[data-open-level]').forEach(el => {
+                el.addEventListener('click', () => {
+                    const level = el.getAttribute('data-open-level');
                     if (level) openLevel(level);
                 });
             });
 
-            // Buttons inside cards (view project) open in new tab
-            const projBtns = document.querySelectorAll('.open-project');
-            projBtns.forEach(b => {
-                b.addEventListener('click', function() {
-                    const href = this.getAttribute('data-href');
-                    if (href) window.open(href, '_blank');
-                });
-            });
-
             // Back buttons
-            const back1 = document.getElementById('back-to-levels-1');
-            const back2 = document.getElementById('back-to-levels-2');
-            const back3 = document.getElementById('back-to-levels-3');
-            [back1, back2, back3].forEach(b => {
-                if (!b) return;
-                b.addEventListener('click', () => showOverview());
+            ['back-to-levels-1','back-to-levels-2','back-to-levels-3'].forEach(id => {
+                const btn = document.getElementById(id);
+                if (btn) btn.addEventListener('click', showOverview);
             });
 
             function openLevel(id) {
-                // hide overview and show requested section
                 if (overview) overview.style.display = 'none';
                 sections.forEach(s => s.classList.remove('active'));
                 const sec = document.getElementById(id);
-                if (sec) sec.classList.add('active');
-                // scroll to top of section for better UX
-                setTimeout(() => { if (sec) sec.scrollIntoView({behavior: 'smooth'}); }, 50);
+                if (sec) {
+                    sec.classList.add('active');
+                    setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+                }
             }
 
             function showOverview() {
-                // hide sections, show overview and clear nav active states
                 sections.forEach(s => s.classList.remove('active'));
                 if (overview) overview.style.display = 'block';
-                tabs.forEach(t => t.classList.remove('active'));
-                // scroll up a bit
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
