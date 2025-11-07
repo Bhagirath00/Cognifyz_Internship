@@ -111,4 +111,4 @@ Alternative (open any project directly from file system) — no build required.
 - Prefer progressive enhancement; avoid heavy dependencies unless necessary.
 
 ## License
-This repository is for internship/portfolio demonstration purposes.
+This repository is for Cognifyz Web Development Internship Portfolio demonstration purposes.
